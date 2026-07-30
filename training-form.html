@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daftar Training | PT. Zibora Indo Pratama</title>
+<title>Formulir Pendaftaran | PT. Zibora Indo Pratama</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
   <div class="topbar">
     <div class="info">
       <span>🕐 28 Jul 2026</span>
-      <span>📞 085778615492</span>
-      <span>✉️ ziboraindopratama@gmail.com</span>
+      <a href="https://wa.me/6285778615492" target="_blank" rel="noopener" style="color:#fff;text-decoration:none;"><span>📞 085778615492 </span></a>
+      <span>✉️ <a href="mailto:ziboraindopratama@gmail.com" style="color:#fff;text-decoration:none;">ziboraindopratama@gmail.com</a></span>
     </div>
     <div class="marquee-wrap">
       <div class="marquee">
@@ -21,7 +21,7 @@
     </div>
   </div>
 
-  <nav class="navbar">
+  <nav class="navbar reveal">
     <div class="logo">
       <img src="assets/zibora-logo.png" alt="Zibora Indo Pratama" class="logo-mark-img">
       <div class="logo-text">
@@ -32,9 +32,8 @@
 
     <ul class="nav-links">
       <li><a href="index.html">Beranda</a></li>
-      <li><a href="index.html#tentang-kami">Tentang Kami</a></li>
-      <li><a href="index.html#layanan">Layanan</a></li>
-      <li><a href="training.html">Training Publik</a></li>
+      <li><a href="about-me.html">Tentang Kami</a></li>
+      <li><a href="training.html">Latihan Publik</a></li>
     </ul>
 
     <a href="https://wa.me/6285778615492" target="_blank" rel="noopener" class="contact-btn">📞 Minta Penawaran</a>
@@ -42,9 +41,9 @@
 
   <section class="page-banner reveal">
     <div class="page-banner-inner">
-      <h1 id="form-title">Pendaftaran Training</h1>
+      <h1>Formulir Pendaftaran</h1>
       <div class="breadcrumb">
-        Anda di sini : <a href="index.html">Beranda</a> / <a href="training.html">Training Publik</a> / <span class="current">Pendaftaran</span>
+        Anda di sini : <a href="index.html">Beranda</a> / <a href="training.html">Training Publik</a> / <span class="current">Daftar</span>
       </div>
     </div>
   </section>
@@ -52,132 +51,103 @@
   <section class="training-form-section">
     <div class="training-form-container">
 
-      <!-- LEFT: Training Info -->
-      <div class="training-info-panel reveal" data-delay="0">
+      <!-- LEFT: Training info, populated from URL query params -->
+      <div class="training-info-panel">
         <div class="training-info-card">
           <div class="training-info-img">
-            <img id="training-img" src="assets/zibora-event-1.jpg" alt="Training">
+            <img id="trainingImg" src="assets/zibora-event-1.jpg" alt="Training">
           </div>
           <div class="training-info-body">
-            <span class="training-info-cat" id="training-cat">Kategori</span>
-            <h2 id="training-title">Judul Training</h2>
-            <p id="training-desc">Deskripsi training akan tampil di sini.</p>
+            <span class="training-info-cat" id="trainingCat">Training</span>
+            <h2 id="trainingTitle">Judul Training</h2>
+            <p id="trainingDesc">Deskripsi training akan muncul di sini.</p>
           </div>
         </div>
 
         <div class="training-contact-info">
-          <h3>Butuh Bantuan?</h3>
-          <p>Hubungi kami jika ada pertanyaan seputar training ini.</p>
+          <h3>Ada Pertanyaan?</h3>
+          <p>Hubungi tim kami untuk info lebih lanjut seputar training ini.</p>
           <div class="training-contact-item">
-            <span>📞</span>
-            <a href="https://wa.me/6285778615492" target="_blank" rel="noopener">085778615492</a>
+            📞 <a href="https://wa.me/6285778615492" target="_blank" rel="noopener">085778615492</a>
           </div>
           <div class="training-contact-item">
-            <span>✉️</span>
-            <a href="mailto:ziboraindopratama@gmail.com">ziboraindopratama@gmail.com</a>
+            ✉️ <a href="mailto:ziboraindopratama@gmail.com">ziboraindopratama@gmail.com</a>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT: Registration Form -->
-      <div class="training-form-panel reveal" data-delay="100">
+      <!-- RIGHT: Registration form -->
+      <div class="training-form-panel" id="formPanel">
         <div class="training-form-header">
-          <h2>Form Pendaftaran</h2>
-          <p>Isi data diri Anda untuk mendaftar training ini.</p>
+          <h2>Formulir Pendaftaran</h2>
+          <p>Lengkapi data di bawah ini untuk mendaftar training.</p>
         </div>
 
-        <form id="registration-form" action="#" method="post">
-          <input type="hidden" id="input-training-title" name="training_title">
+        <!-- Hidden iframe target so the page doesn't navigate away on submit -->
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+        <form id="registerForm"
+              action="https://docs.google.com/forms/d/e/1FAIpQLSdlB8vtxV4dfmMFn1FT38rY-JPQwYw7BT8PO2J1o0WkeGoPsA/formResponse"
+              method="POST"
+              target="hidden_iframe">
 
           <div class="form-row">
             <div class="form-group">
-              <label for="nama">Nama Lengkap <span class="required">*</span></label>
-              <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+              <label>Nama Lengkap <span class="required">*</span></label>
+              <input type="text" name="entry.109697621" placeholder="Nama lengkap Anda" required>
             </div>
             <div class="form-group">
-              <label for="email">Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+              <label>Tanggal Lahir <span class="required">*</span></label>
+              <input type="date" name="entry.624298486" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="telepon">No. Telepon <span class="required">*</span></label>
-              <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx" required>
+              <label>No. WhatsApp <span class="required">*</span></label>
+              <input type="tel" name="entry.1731909526" placeholder="08xx-xxxx-xxxx" required>
             </div>
             <div class="form-group">
-              <label for="instansi">Instansi/Perusahaan</label>
-              <input type="text" id="instansi" name="instansi" placeholder="Nama instansi atau perusahaan">
+              <label>Email <span class="required">*</span></label>
+              <input type="email" name="entry.EMAIL_BELUM_ADA" placeholder="nama@email.com" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="jabatan">Jabatan</label>
-              <input type="text" id="jabatan" name="jabatan" placeholder="Jabatan di instansi">
+              <label>Instansi/Institusi <span class="required">*</span></label>
+              <input type="text" name="entry.1754564569" placeholder="Nama instansi/perusahaan" required>
             </div>
             <div class="form-group">
-              <label for="provinsi">Provinsi</label>
-              <select id="provinsi" name="provinsi">
-                <option value="">Pilih Provinsi</option>
-                <option value="Aceh">Aceh</option>
-                <option value="Bali">Bali</option>
-                <option value="Banten">Banten</option>
-                <option value="Bengkulu">Bengkulu</option>
-                <option value="DI Yogyakarta">DI Yogyakarta</option>
-                <option value="DKI Jakarta">DKI Jakarta</option>
-                <option value="Gorontalo">Gorontalo</option>
-                <option value="Jambi">Jambi</option>
-                <option value="Jawa Barat">Jawa Barat</option>
-                <option value="Jawa Tengah">Jawa Tengah</option>
-                <option value="Jawa Timur">Jawa Timur</option>
-                <option value="Kalimantan Barat">Kalimantan Barat</option>
-                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                <option value="Kalimantan Timur">Kalimantan Timur</option>
-                <option value="Kalimantan Utara">Kalimantan Utara</option>
-                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                <option value="Kepulauan Riau">Kepulauan Riau</option>
-                <option value="Lampung">Lampung</option>
-                <option value="Maluku">Maluku</option>
-                <option value="Maluku Utara">Maluku Utara</option>
-                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                <option value="Papua">Papua</option>
-                <option value="Papua Barat">Papua Barat</option>
-                <option value="Riau">Riau</option>
-                <option value="Sulawesi Barat">Sulawesi Barat</option>
-                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                <option value="Sulawesi Utara">Sulawesi Utara</option>
-                <option value="Sumatera Barat">Sumatera Barat</option>
-                <option value="Sumatera Selatan">Sumatera Selatan</option>
-                <option value="Sumatera Utara">Sumatera Utara</option>
-              </select>
+              <label>Jabatan <span class="required">*</span></label>
+              <input type="text" name="entry.357442288" placeholder="Jabatan/posisi Anda" required>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="alamat">Alamat Lengkap</label>
-            <textarea id="alamat" name="alamat" rows="3" placeholder="Alamat lengkap sesuai KTP"></textarea>
+            <label>Tahu Info Training Ini Dari Mana? <span class="required">*</span></label>
+            <select name="entry.1844783274" required>
+              <option value="" disabled selected>Pilih salah satu</option>
+              <option value="Whatsapp">WhatsApp</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Telegram">Telegram</option>
+              <option value="Facebook">Facebook</option>
+            </select>
           </div>
 
-          <div class="form-group">
-            <label for="pesan">Pesan / Kebutuhan Khusus</label>
-            <textarea id="pesan" name="pesan" rows="3" placeholder="Contoh: kebutuhan akomodasi, request materi tertentu, dll."></textarea>
-          </div>
+          <input type="hidden" name="entry.614334652" id="trainingNameField">
 
           <div class="form-submit">
-            <button type="submit" class="btn-submit">📝 Daftar Sekarang</button>
+            <button type="submit" class="btn-submit">Daftar Sekarang</button>
           </div>
         </form>
 
-        <div id="form-success" class="form-success" style="display:none;">
+        <!-- Success state, shown after submit -->
+        <div class="form-success" id="successPanel" style="display:none;">
           <div class="success-icon">✅</div>
-          <h3>Pendaftaran Berhasil!</h3>
-          <p>Terima kasih, data Anda telah kami terima. Tim kami akan menghubungi Anda melalui WhatsApp atau Email untuk informasi lebih lanjut.</p>
-          <a href="training.html" class="btn-back">← Kembali ke Training</a>
+          <h3>Pendaftaran Terkirim!</h3>
+          <p>Terima kasih sudah mendaftar. Tim kami akan menghubungi Anda melalui WhatsApp/Email untuk informasi lebih lanjut.</p>
+          <a href="training.html" class="btn-back">Kembali ke Daftar Training</a>
         </div>
       </div>
 
@@ -214,14 +184,14 @@
 
           <div class="footer-block" style="margin-top:22px;">
             <h4>Kontak</h4>
-            <div class="footer-contact-item">✉️ <span>ziboraindopratama@gmail.com</span></div>
-            <div class="footer-contact-item">📞 <span>085778615492</span></div>
+            <div class="footer-contact-item">✉️ <a href="mailto:ziboraindopratama@gmail.com" style="color:#fff;text-decoration:none;">ziboraindopratama@gmail.com</a></div>
+            <div class="footer-contact-item">📞 <a href="https://wa.me/6285778615492" target="_blank" rel="noopener" style="color:#fff;text-decoration:none;">085778615492</a></div>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>Copyright © 2026 PT. Zibora Indo Pratama | <a href="privacy-policy.html" style="color:inherit;">Kebijakan Privasi</a> | All rights reserved.</span>
+        <span>Copyright © 2026 PT. Zibora Indo Pratama | <a href="privacyandpolicy.html" style="color:inherit;">Kebijakan Privasi</a> | All rights reserved.</span>
         <div class="footer-socials">
           <a href="https://www.instagram.com/ziboraindopratama" target="_blank" rel="noopener">IG</a>
           <a href="#">YT</a>
@@ -231,65 +201,40 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
   <script>
-    // Get URL parameters and populate training info
+    // Populate the left info panel from the URL query params (?title=&cat=&desc=&img=)
     const params = new URLSearchParams(window.location.search);
-    const title = params.get('title') || '';
-    const cat = params.get('cat') || '';
+    const title = params.get('title') || 'Training Zibora';
+    const cat = params.get('cat') || 'Training';
     const desc = params.get('desc') || '';
-    const img = params.get('img') || '';
+    const img = params.get('img') || 'assets/zibora-event-1.jpg';
 
-    if (title) {
-      document.getElementById('training-title').textContent = decodeURIComponent(title);
-      document.getElementById('form-title').textContent = 'Pendaftaran - ' + decodeURIComponent(title).substring(0, 50) + '...';
-      document.getElementById('input-training-title').value = decodeURIComponent(title);
-    }
-    if (cat) {
-      document.getElementById('training-cat').textContent = decodeURIComponent(cat);
-    }
-    if (desc) {
-      document.getElementById('training-desc').textContent = decodeURIComponent(desc);
-    }
-    if (img) {
-      document.getElementById('training-img').src = decodeURIComponent(img);
-    }
+    document.getElementById('trainingTitle').textContent = title;
+    document.getElementById('trainingCat').textContent = cat;
+    document.getElementById('trainingDesc').textContent = desc;
+    document.getElementById('trainingImg').src = img;
+    document.getElementById('trainingImg').alt = title;
+    document.getElementById('trainingNameField').value = title;
+    document.title = title + ' | PT. Zibora Indo Pratama';
 
-    // Form submission handler
-    document.getElementById('registration-form').addEventListener('submit', function(e) {
-      e.preventDefault();
+    // Show success panel once the hidden iframe finishes loading (i.e. after submit)
+    const form = document.getElementById('registerForm');
+    const iframe = document.getElementById('hidden_iframe');
+    let submitted = false;
 
-      // Build WhatsApp message
-      const nama = document.getElementById('nama').value;
-      const email = document.getElementById('email').value;
-      const telepon = document.getElementById('telepon').value;
-      const instansi = document.getElementById('instansi').value;
-      const jabatan = document.getElementById('jabatan').value;
-      const provinsi = document.getElementById('provinsi').value;
-      const alamat = document.getElementById('alamat').value;
-      const pesan = document.getElementById('pesan').value;
-      const trainingTitle = document.getElementById('input-training-title').value;
+    form.addEventListener('submit', () => {
+      submitted = true;
+    });
 
-      let message = `Halo Zibora, saya ingin mendaftar training:%0A%0A`;
-      message += `📌 *Training:* ${trainingTitle}%0A`;
-      message += `👤 *Nama:* ${nama}%0A`;
-      message += `📧 *Email:* ${email}%0A`;
-      message += `📞 *Telepon:* ${telepon}%0A`;
-      if (instansi) message += `🏢 *Instansi:* ${instansi}%0A`;
-      if (jabatan) message += `💼 *Jabatan:* ${jabatan}%0A`;
-      if (provinsi) message += `📍 *Provinsi:* ${provinsi}%0A`;
-      if (alamat) message += `🏠 *Alamat:* ${alamat}%0A`;
-      if (pesan) message += `📝 *Pesan:* ${pesan}%0A`;
-
-      // Show success message
-      document.getElementById('registration-form').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-
-      // Open WhatsApp with the message
-      const waUrl = `https://wa.me/6285778615492?text=${message}`;
-      window.open(waUrl, '_blank');
+    iframe.addEventListener('load', () => {
+      if (submitted) {
+        document.getElementById('formPanel').querySelector('.training-form-header').style.display = 'none';
+        form.style.display = 'none';
+        document.getElementById('successPanel').style.display = 'block';
+      }
     });
   </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
-

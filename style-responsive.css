@@ -1,0 +1,393 @@
+/*
+  Tambahkan file ini SETELAH style.css:
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-responsive.css">
+*/
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+img {
+  max-width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+/* Perbaikan posisi badge agar mengikuti ukuran gambar kartu. */
+.academy-body {
+  position: relative;
+}
+
+.academy-badge {
+  top: -82px;
+}
+
+@media (max-width: 1100px) {
+  .navbar {
+    gap: 20px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links li:not(:last-child)::after {
+    margin-left: 16px;
+  }
+
+  .contact-btn {
+    padding: 12px 16px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    height: auto;
+    min-height: 44px;
+    padding: 10px 24px;
+  }
+
+  .topbar .info {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+
+  .topbar .marquee-wrap {
+    display: none;
+  }
+
+  .navbar {
+    position: relative;
+    flex-wrap: wrap;
+    padding: 16px 24px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dbe3ec;
+    border-radius: 8px;
+    background: #fff;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .nav-toggle-icon,
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after {
+    display: block;
+    width: 21px;
+    height: 2px;
+    border-radius: 99px;
+    background: currentColor;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+
+  .nav-toggle-icon {
+    position: relative;
+  }
+
+  .nav-toggle-icon::before,
+  .nav-toggle-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .nav-toggle-icon::before { top: -7px; }
+  .nav-toggle-icon::after { top: 7px; }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon {
+    background: transparent;
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] .nav-toggle-icon::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links {
+    display: none;
+    order: 4;
+    width: 100%;
+    padding: 12px 0 4px;
+  }
+
+  .navbar.menu-open .nav-links { display: flex; }
+
+  .contact-btn {
+    display: none;
+    order: 3;
+  }
+
+  .navbar.menu-open .contact-btn { display: flex; }
+
+  .hero {
+    min-height: 540px;
+    padding: 56px 24px;
+    background-position: 60% center;
+  }
+
+  .academies,
+  .about,
+  .vismis,
+  .values,
+  .why-us,
+  .event-section,
+  .training-form-section,
+  .legal-content {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .academy-badge {
+    top: -76px;
+    width: 62px;
+    height: 62px;
+  }
+
+  .academy-badge img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .academy-body {
+    margin-top: 42px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .topbar {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+
+  .topbar .info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+    width: 100%;
+  }
+
+  .navbar {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .logo-mark-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo-text .name {
+    font-size: 19px;
+  }
+
+  .logo-text .tagline {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .contact-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+    gap: 10px 16px;
+    flex-wrap: wrap;
+    padding-top: 8px;
+  }
+
+  .nav-links li:not(:last-child)::after {
+    display: none;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: 460px;
+    padding: 48px 20px;
+    background:
+      linear-gradient(90deg, rgba(10,15,30,.86), rgba(10,15,30,.56)),
+      url("assets/zibora-event-1.jpg") 60% center / cover no-repeat;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(42px, 14vw, 58px);
+    margin-bottom: 12px;
+  }
+
+  .hero-content .subtitle {
+    font-size: 17px;
+    line-height: 1.45;
+    margin-bottom: 26px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 260px;
+  }
+
+  .hero-buttons a {
+    padding: 14px 20px;
+    text-align: center;
+  }
+
+  .academies,
+  .about,
+  .vismis,
+  .values,
+  .why-us,
+  .event-section,
+  .training-form-section {
+    padding: 52px 20px;
+  }
+
+  .academy-grid {
+    gap: 52px;
+  }
+
+  .academy-badge {
+    top: -71px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .academy-badge img {
+    width: 33px;
+    height: 33px;
+  }
+
+  .academy-body {
+    margin-top: 38px;
+  }
+
+  .academy-body h3 {
+    font-size: 20px;
+  }
+
+  .training-banner {
+    min-height: 320px;
+    padding: 40px 20px;
+  }
+
+  .training-banner h2,
+  .about-heading h2,
+  .values-inner > h2,
+  .why-us-text h2 {
+    font-size: 28px;
+  }
+
+  .about-heading {
+    margin-bottom: 38px;
+  }
+
+  .about-heading p {
+    font-size: 15px;
+  }
+
+  .vismis-inner,
+  .why-us-inner {
+    gap: 32px;
+  }
+
+  .vismis-col h2 {
+    font-size: 27px;
+  }
+
+  .values-inner > h2 {
+    margin-bottom: 30px;
+  }
+
+  .value-card {
+    padding: 24px 18px;
+  }
+
+  .footer {
+    padding: 46px 20px 0;
+  }
+
+  .footer-badge-row {
+    margin-bottom: 38px;
+  }
+
+  .footer-badge-row .line {
+    display: none;
+  }
+
+  .footer-badge {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .footer-cols {
+    gap: 24px;
+    padding-bottom: 36px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .event-card {
+    margin-bottom: 1rem;
+  }
+
+  .event-heading {
+    font-size: 21px;
+  }
+
+  .page-banner {
+    padding: 52px 20px 38px;
+  }
+
+  .page-banner h1 {
+    margin-bottom: 20px;
+  }
+
+  .legal-content {
+    padding: 44px 20px 72px;
+  }
+
+  .modal-overlay {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .navbar {
+    align-items: flex-start;
+  }
+
+  .footer-badge {
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
