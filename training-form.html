@@ -64,6 +64,18 @@
           </div>
         </div>
 
+        <div class="training-contact-info" id="silabusCard" style="display:none;">
+          <h3>Silabus Training</h3>
+          <p>Lihat atau unduh silabus lengkap sebelum mendaftar.</p>
+          <div class="silabus-actions">
+            <button type="button" id="silabusToggle" class="btn-silabus">📄 Lihat Silabus</button>
+            <a href="#" id="silabusLink" target="_blank" rel="noopener" class="btn-silabus-outline">⬇ Download</a>
+          </div>
+          <div class="silabus-preview" id="silabusPreview">
+            <iframe id="silabusFrame" src="" title="Preview Silabus" loading="lazy"></iframe>
+          </div>
+        </div>
+
         <div class="training-contact-info">
           <h3>Ada Pertanyaan?</h3>
           <p>Hubungi tim kami untuk info lebih lanjut seputar training ini.</p>
@@ -208,6 +220,7 @@
     const cat = params.get('cat') || 'Training';
     const desc = params.get('desc') || '';
     const img = params.get('img') || 'assets/zibora-event-1.jpg';
+    const pdf = params.get('pdf') || '';
 
     document.getElementById('trainingTitle').textContent = title;
     document.getElementById('trainingCat').textContent = cat;
@@ -216,6 +229,25 @@
     document.getElementById('trainingImg').alt = title;
     document.getElementById('trainingNameField').value = title;
     document.title = title + ' | PT. Zibora Indo Pratama';
+
+    if (pdf) {
+      document.getElementById('silabusLink').href = pdf;
+      document.getElementById('silabusCard').style.display = 'block';
+
+      const toggleBtn = document.getElementById('silabusToggle');
+      const preview = document.getElementById('silabusPreview');
+      const frame = document.getElementById('silabusFrame');
+      let loaded = false;
+
+      toggleBtn.addEventListener('click', () => {
+        const isOpen = preview.classList.toggle('open');
+        if (isOpen && !loaded) {
+          frame.src = pdf;
+          loaded = true;
+        }
+        toggleBtn.textContent = isOpen ? '📄 Sembunyikan Silabus' : '📄 Lihat Silabus';
+      });
+    }
 
     // Show success panel once the hidden iframe finishes loading (i.e. after submit)
     const form = document.getElementById('registerForm');
